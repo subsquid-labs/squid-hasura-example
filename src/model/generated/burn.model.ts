@@ -28,6 +28,10 @@ export class Burn {
     @ManyToOne_(() => Account, {nullable: true})
     account!: Account
 
+    @Index_()
+    @ManyToOne_(() => Account, {nullable: true})
+    otherAccount!: Account | undefined | null
+
     @OneToOne_(() => TxnWithBurn, e => e.burn)
     txn!: TxnWithBurn | undefined | null
 }

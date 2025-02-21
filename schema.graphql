@@ -5,15 +5,17 @@ type Burn @entity {
   value: BigInt!
   txHash: String!
   account: Account!
-	txn: TxnWithBurn @derivedFrom(field: "burn")
+  otherAccount: Account
+  txn: TxnWithBurn @derivedFrom(field: "burn")
 }
 
 type Account @entity {
   id: ID!
   burns: [Burn!]! @derivedFrom(field: "account")
+  otherBurns: [Burn!]! @derivedFrom(field: "otherAccount")
 }
 
 type TxnWithBurn @entity {
-	id: ID!
-	burn: Burn! @unique
+  id: ID!
+  burn: Burn! @unique
 }

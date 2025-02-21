@@ -24,6 +24,18 @@
                     }
                   }
                 }
+              },
+              {
+                "name": "otherBurns",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "other_account_id",
+                    "table": {
+                      "name": "burn",
+                      "schema": "public"
+                    }
+                  }
+                }
               }
             ],
             "select_permissions": [
@@ -68,7 +80,7 @@
             },
             "object_relationships": [
               {
-                "name": "txn_with_burn",
+                "name": "txn",
                 "using": {
                   "foreign_key_constraint_on": {
                     "column": "burn_id",
@@ -83,6 +95,12 @@
                 "name": "account",
                 "using": {
                   "foreign_key_constraint_on": "account_id"
+                }
+              },
+              {
+                "name": "otherAccount",
+                "using": {
+                  "foreign_key_constraint_on": "other_account_id"
                 }
               }
             ],

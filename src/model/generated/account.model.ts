@@ -12,4 +12,7 @@ export class Account {
 
     @OneToMany_(() => Burn, e => e.account)
     burns!: Burn[]
+
+    @OneToMany_(() => Burn, e => e.otherAccount)
+    otherBurns!: Burn[]
 }
